@@ -1,0 +1,53 @@
+<?xml version="1.0"?>
+<openerp>
+    <data>
+
+        <record id="npi_detail_confirm_form_view" model="ir.ui.view">
+            <field name="name">npi.detail.confirm.form.view</field>
+            <field name="model">npi.detail.confirm</field>
+            <field name="arch" type="xml">
+                <form string="Confirm NPI Detail">
+                    <group colspan="4" cols="4">
+                        <group>
+                            <field name="name"/>
+                            <field name="doctor_npi"/>
+                        </group>
+                        <group>
+                            <field name="credential"/>
+                            <field name="is_company"/>
+                        </group>
+                    </group>
+                    <separator string="Addresss"/>
+                    <group colspan="4" cols="4">
+                        <group>
+                            <field name="street"/>
+                            <field name="city"/>
+                            <field name="state_id"/>
+                        </group>
+                        <group>
+                            <field name="street2"/>
+                            <field name="zip"/>
+                            <field name="country_id"/>
+                        </group>
+                    </group>
+                    <footer>
+                        <button name="update_record" string="Update Record" type="object"
+                                class="oe_highlight"/>
+                        or
+                        <button string="Cancel" class="oe_link" special="cancel"/>
+                    </footer>
+                </form>
+            </field>
+        </record>
+
+        <record id="action_npi_detail_confirm" model="ir.actions.act_window">
+            <field name="name">Confirm NPI Details</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">npi.detail.confirm</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">form</field>
+            <field name="target">new</field>
+        </record>
+
+    </data>
+</openerp>

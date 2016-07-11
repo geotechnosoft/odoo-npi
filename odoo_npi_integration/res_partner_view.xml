@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<openerp> 
+    <data>
+        
+        <record id="view_partner_form_npi_inherit" model="ir.ui.view">
+            <field name="name">res.partner.npi.form</field>
+            <field name="model">res.partner</field>
+            <field name="inherit_id" ref="base.view_partner_form"/>
+            <field name="arch" type="xml">
+                <xpath expr='/form/sheet/div[@name="buttons"]' position='after'>
+                    <div class="oe_right oe_button_box" name="extra_info">
+                        <group colspan="4" cols="4">
+                            <group>
+                                <field name='doctor_npi'/>
+                                <field name="create_date" invisible="1"/>
+                                <separator/>
+                                <button name='get_npi_details' type='object' string='Get NPI Details' class='oe_highlight'
+                                        attrs='{"invisible": [("create_date","=", False)]}'/>
+                            </group>
+                        </group>
+                    </div>
+                </xpath>
+                <xpath expr='/form/sheet/div[@class="oe_title oe_left"]/field[@name="category_id"]' position='after'>
+                    <field name='credential'/>
+                </xpath>
+            </field>
+        </record>
+        
+    </data>
+</openerp>
